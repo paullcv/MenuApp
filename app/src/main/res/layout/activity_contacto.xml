@@ -1,17 +1,152 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Contacto">
+    tools:context=".Controlador.Contacto.Contacto">
 
 
-    <TextView
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="Contacto"
-        android:textSize="30dp"
-        android:gravity="center"
-        />
-</androidx.constraintlayout.widget.ConstraintLayout>
+        android:orientation="vertical"
+        android:layout_marginBottom="15dp"
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="15dp"
+        android:layout_marginTop="15dp"
+        >
+
+        <TextView
+            android:id="@+id/tituloContactos"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="15dp"
+            android:gravity="center"
+            android:text="CONTACTOS"
+            android:textSize="26dp"
+            android:textStyle="bold" />
+
+
+
+        <TextView
+            android:id="@+id/tituloId"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="ID" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <EditText
+                android:id="@+id/editTextId"
+                android:layout_width="225dp"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="10dp"
+                android:ems="10"
+                android:inputType="text" />
+
+            <Button
+                android:id="@+id/btnBuscarContacto"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Buscar" />
+
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/tituloNombre"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="NOMBRE" />
+
+        <EditText
+            android:id="@+id/editTextNombreContacto"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:inputType="text"
+            android:layout_marginBottom="10dp"
+            />
+
+        <TextView
+            android:id="@+id/tituloCorreo"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="CORREO" />
+
+        <EditText
+            android:id="@+id/editTextCorreoContacto"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:inputType="text"
+            android:layout_marginBottom="10dp"
+            />
+
+        <TextView
+            android:id="@+id/tituloTelefono"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="TELEFONO" />
+
+        <EditText
+            android:id="@+id/editTextTelefonoContacto"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:inputType="phone"
+            android:layout_marginBottom="10dp"
+            />
+
+        <TextView
+            android:id="@+id/tituloDireccion"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="DIRECCION"
+            />
+
+        <EditText
+            android:id="@+id/editTextDireccionContacto"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:inputType="text"
+            android:layout_marginBottom="10dp"
+            />
+
+        <Button
+            android:id="@+id/btnAddContacto"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="30dp"
+            android:text="AGREGAR" />
+
+        <Button
+            android:id="@+id/btnEditContacto"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="EDITAR" />
+
+        <Button
+            android:id="@+id/btnDeleteContacto"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="ELIMINAR" />
+
+        <Button
+            android:id="@+id/btnShowContacto"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="MOSTRAR CONTACTOS" />
+
+        <Button
+            android:id="@+id/btnLimpiar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="LIMPIAR CAMPOS" />
+
+    </LinearLayout>
+</RelativeLayout>

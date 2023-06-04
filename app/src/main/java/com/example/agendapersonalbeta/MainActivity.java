@@ -9,6 +9,8 @@ import android.view.View;
 import android.widget.GridLayout;
 import android.widget.Toast;
 
+import com.example.agendapersonalbeta.Controlador.Contacto.Contacto;
+
 public class MainActivity extends AppCompatActivity {
 
     //Variables de la vista
@@ -35,7 +37,7 @@ public class MainActivity extends AppCompatActivity {
                 @Override
                 public void onClick(View view) {
                     if (finalI == 0){
-                        Intent intent = new Intent(MainActivity.this,Contacto.class);
+                        Intent intent = new Intent(MainActivity.this, Contacto.class);
                         startActivity(intent);
                     }else if(finalI == 1){
                         Intent intent = new Intent(MainActivity.this, Evento.class);

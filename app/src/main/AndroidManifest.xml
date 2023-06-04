@@ -13,6 +13,9 @@
         android:theme="@style/Theme.AgendaPersonalBeta"
         tools:targetApi="31">
         <activity
+            android:name=".Controlador.Contacto.ContactoMostar"
+            android:exported="false" />
+        <activity
             android:name=".Categoria"
             android:exported="false" />
         <activity
@@ -28,7 +31,7 @@
             android:name=".Evento"
             android:exported="false" />
         <activity
-            android:name=".Contacto"
+            android:name=".Controlador.Contacto.Contacto"
             android:exported="false" />
         <activity
             android:name=".MainActivity"

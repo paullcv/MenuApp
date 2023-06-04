@@ -51,7 +51,7 @@
                 <ImageView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:src="@drawable/contacto" />
+                    android:src="@drawable/contacto3" />
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -126,7 +126,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="INGRESO"
+                    android:text="INGRESOS"
                     android:textAlignment="center"
                     android:gravity="center_horizontal" />
             </LinearLayout>
@@ -160,7 +160,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="EGRESO"
+                    android:text="EGRESOS"
                     android:textAlignment="center"
                     android:gravity="center_horizontal" />
             </LinearLayout>
@@ -194,7 +194,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="PRESTAMO"
+                    android:text="PRESTAMOS"
                     android:textAlignment="center"
                     android:gravity="center_horizontal" />
             </LinearLayout>
@@ -228,7 +228,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="CATEGORIA"
+                    android:text="CATEGORIAS"
                     android:textAlignment="center"
                     android:gravity="center_horizontal" />
             </LinearLayout>
