@@ -1,4 +1,4 @@
-package com.example.agendapersonalbeta;
+package com.example.agendapersonalbeta.Controlador.Categoria;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -9,8 +9,9 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
-import com.example.agendapersonalbeta.Controlador.Contacto.ContactoMostar;
-import com.example.agendapersonalbeta.Modelo.Contacto.ClaseContacto;
+import com.example.agendapersonalbeta.Modelo.Categoria.ClaseCategoria;
+import com.example.agendapersonalbeta.Modelo.Categoria.ModeloCategoria;
+import com.example.agendapersonalbeta.R;
 
 public class Categoria extends AppCompatActivity {
 

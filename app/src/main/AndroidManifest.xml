@@ -13,13 +13,13 @@
         android:theme="@style/Theme.AgendaPersonalBeta"
         tools:targetApi="31">
         <activity
-            android:name=".CategoriaMostrar"
+            android:name=".Controlador.Categoria.CategoriaMostrar"
             android:exported="false" />
         <activity
             android:name=".Controlador.Contacto.ContactoMostar"
             android:exported="false" />
         <activity
-            android:name=".Categoria"
+            android:name=".Controlador.Categoria.Categoria"
             android:exported="false" />
         <activity
             android:name=".Egreso"

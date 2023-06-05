@@ -1,4 +1,4 @@
-package com.example.agendapersonalbeta;
+package com.example.agendapersonalbeta.Controlador.Categoria;
 
 import android.view.LayoutInflater;
 import android.view.View;
@@ -8,7 +8,8 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.agendapersonalbeta.Controlador.Contacto.ContactoAdaptador;
+import com.example.agendapersonalbeta.Modelo.Categoria.ClaseCategoria;
+import com.example.agendapersonalbeta.R;
 
 import java.util.List;
 

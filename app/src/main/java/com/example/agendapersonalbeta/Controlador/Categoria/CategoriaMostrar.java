@@ -1,4 +1,4 @@
-package com.example.agendapersonalbeta;
+package com.example.agendapersonalbeta.Controlador.Categoria;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -6,8 +6,9 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import android.os.Bundle;
 
-import com.example.agendapersonalbeta.Controlador.Contacto.ContactoAdaptador;
-import com.example.agendapersonalbeta.Modelo.Contacto.ModeloContacto;
+import com.example.agendapersonalbeta.Controlador.Categoria.CategoriaAdaptador;
+import com.example.agendapersonalbeta.Modelo.Categoria.ModeloCategoria;
+import com.example.agendapersonalbeta.R;
 
 public class CategoriaMostrar extends AppCompatActivity {
 

@@ -1,4 +1,4 @@
-package com.example.agendapersonalbeta;
+package com.example.agendapersonalbeta.Modelo.Categoria;
 
 public class ClaseCategoria {
 

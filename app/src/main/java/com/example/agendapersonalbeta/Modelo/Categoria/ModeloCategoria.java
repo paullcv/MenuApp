@@ -1,4 +1,4 @@
-package com.example.agendapersonalbeta;
+package com.example.agendapersonalbeta.Modelo.Categoria;
 
 import android.content.ContentValues;
 import android.content.Context;
@@ -8,7 +8,7 @@ import android.database.sqlite.SQLiteDatabase;
 import androidx.annotation.Nullable;
 
 import com.example.agendapersonalbeta.Modelo.AgendaBD;
-import com.example.agendapersonalbeta.Modelo.Contacto.ClaseContacto;
+import com.example.agendapersonalbeta.Modelo.Categoria.ClaseCategoria;
 
 import java.util.ArrayList;
 import java.util.List;
