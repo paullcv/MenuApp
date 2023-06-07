@@ -11,6 +11,7 @@ import android.widget.Toast;
 
 import com.example.agendapersonalbeta.Controlador.Categoria.Categoria;
 import com.example.agendapersonalbeta.Controlador.Contacto.Contacto;
+import com.example.agendapersonalbeta.Controlador.Evento.Evento;
 
 public class MainActivity extends AppCompatActivity {
 

@@ -41,6 +41,7 @@ public class Categoria extends AppCompatActivity {
         btnBuscarCategoria = findViewById(R.id.btnBuscarCategoria);
         btnEditarCategoria = findViewById(R.id.btnEditCategoria);
         btnEliminarCategoria = findViewById(R.id.btnDeleteCategoria);
+        btnLimpiarCategoria = findViewById(R.id.btnLimpiarCategoria);
 
         //CREAMOS LA INSTANCIA CON EL MODELO
         ModeloCategoria modeloCategoria = new ModeloCategoria(Categoria.this);
@@ -95,6 +96,14 @@ public class Categoria extends AppCompatActivity {
                 modeloCategoria.eliminarCategoria(Integer.valueOf(etIdCategoria.getText().toString()));
                 limpiar();
                 Toast.makeText(getApplicationContext(), "Los Datos se Eliminaron Correctamente", Toast.LENGTH_SHORT).show();
+            }
+        });
+
+        //GENERAR EVENTO DE LIMPIAR LOS CAMPOS
+        btnLimpiarCategoria.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                limpiar();
             }
         });
 
