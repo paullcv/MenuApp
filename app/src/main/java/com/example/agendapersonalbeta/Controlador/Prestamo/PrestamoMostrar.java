@@ -6,8 +6,14 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import android.os.Bundle;
 
+import com.example.agendapersonalbeta.Modelo.Categoria.ClaseCategoria;
+import com.example.agendapersonalbeta.Modelo.Categoria.ModeloCategoria;
+import com.example.agendapersonalbeta.Modelo.Contacto.ClaseContacto;
+import com.example.agendapersonalbeta.Modelo.Contacto.ModeloContacto;
 import com.example.agendapersonalbeta.Modelo.Prestamo.ModeloPrestamo;
 import com.example.agendapersonalbeta.R;
+
+import java.util.List;
 
 
 public class PrestamoMostrar extends AppCompatActivity {
@@ -28,7 +34,15 @@ public class PrestamoMostrar extends AppCompatActivity {
         //INSTACIA DE NUESTRO MODELO PARA QUE UTILICE EL METODO MOSTRAR PRESTAMO
         ModeloPrestamo modeloPrestamo = new ModeloPrestamo(getApplicationContext());
 
-        prestamoAdaptador = new PrestamoAdaptador(modeloPrestamo.mostrarPrestamos());
+        // USO DEL MODELO PAR MOSTRAR EL NOMBRE APARTIR DEL ID
+        ModeloContacto modeloContacto = new ModeloContacto(getApplicationContext());
+        List<ClaseContacto> listaContactos = modeloContacto.mostrarContactos();
+
+        // USO DEL MODELO PAR MOSTRAR EL TITULO CATEGORIA APARTIR DEL ID
+        ModeloCategoria modeloCategoria = new ModeloCategoria(getApplicationContext());
+        List<ClaseCategoria> listaCategorias = modeloCategoria.mostrarCategorias();
+
+        prestamoAdaptador = new PrestamoAdaptador(modeloPrestamo.mostrarPrestamos(),listaContactos, listaCategorias);
         recyclerView.setAdapter(prestamoAdaptador);
 
     }
