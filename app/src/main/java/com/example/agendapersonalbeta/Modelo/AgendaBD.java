@@ -16,6 +16,8 @@ public class AgendaBD extends SQLiteOpenHelper {
 
     public static final String TABLA_EVENTO = "CREATE TABLE EVENTO (ID INTEGER PRIMARY KEY, NOMBRE TEXT, FECHA TEXT, HORA TEXT)";
 
+    public static final String TABLA_PRESTAMO = "CREATE TABLE PRESTAMO (ID INTEGER PRIMARY KEY, MONTO REAL, FECHAPRESTAMO TEXT, FECHAVENCIMIENTOPRESTAMO TEXT, CONTACTO_ID INTEGER, CATEGORIA_ID INTEGER, FOREIGN KEY(CONTACTO_ID) REFERENCES CONTACTO(ID), FOREIGN KEY(CATEGORIA_ID) REFERENCES CATEGORIA(ID))";
+
 
 
     public AgendaBD(@Nullable Context context){
@@ -27,6 +29,7 @@ public class AgendaBD extends SQLiteOpenHelper {
         sqLiteDatabase.execSQL(TABLA_CONTACTO);
         sqLiteDatabase.execSQL(TABLA_CATEGORIA);
         sqLiteDatabase.execSQL(TABLA_EVENTO);
+        sqLiteDatabase.execSQL(TABLA_PRESTAMO);
     }
 
     @Override
@@ -34,9 +37,11 @@ public class AgendaBD extends SQLiteOpenHelper {
         sqLiteDatabase.execSQL("DROP TABLE IF EXISTS "+ TABLA_CONTACTO);
         sqLiteDatabase.execSQL("DROP TABLE IF EXISTS "+ TABLA_CATEGORIA);
         sqLiteDatabase.execSQL("DROP TABLE IF EXISTS "+ TABLA_EVENTO);
+        sqLiteDatabase.execSQL("DROP TABLE IF EXISTS "+ TABLA_PRESTAMO);
         sqLiteDatabase.execSQL(TABLA_CONTACTO);
         sqLiteDatabase.execSQL(TABLA_CATEGORIA);
         sqLiteDatabase.execSQL(TABLA_EVENTO);
+        sqLiteDatabase.execSQL(TABLA_PRESTAMO);
         onCreate(sqLiteDatabase);
     }
 }

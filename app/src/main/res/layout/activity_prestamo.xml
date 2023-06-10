@@ -1,18 +1,203 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Prestamo">
+    tools:context=".Controlador.Prestamo.Prestamo">
 
 
-    <TextView
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        >
+
+
+
+
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="PRESTAMO"
-        android:textSize="30dp"
-        android:gravity="center"
-        />
+        android:orientation="vertical"
+        android:layout_marginBottom="15dp"
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="15dp"
+        android:layout_marginTop="15dp"
+        >
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+        <TextView
+            android:id="@+id/tituloPrincipalPrestamo"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="15dp"
+            android:gravity="center"
+            android:text="PRESTAMOS"
+            android:textSize="26dp"
+            android:textStyle="bold" />
+
+
+        <TextView
+            android:id="@+id/tituloId"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="ID" />
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <EditText
+            android:id="@+id/editTextIdPrestamo"
+            android:layout_width="225dp"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="10dp"
+            android:ems="10"
+            android:inputType="number" />
+
+        <Button
+            android:id="@+id/btnBuscarPrestamo"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Buscar" />
+
+    </LinearLayout>
+
+        <TextView
+            android:id="@+id/textViewmontoPrestamo"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="MONTO" />
+
+        <EditText
+            android:id="@+id/editTextMontoPrestamo"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:inputType="number"
+            android:layout_marginBottom="10dp"
+            />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/btnDPFechaPrestamo"
+                android:layout_width="150dp"
+                android:layout_height="wrap_content"
+                android:text="FECHA PRESTAMO" />
+
+            <EditText
+                android:id="@+id/editTextDPFechaPrestamo"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="10dp"
+                android:ems="10"
+                android:inputType="text" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/btnDPFechaPrestamoVencimiento"
+                android:layout_width="150dp"
+                android:layout_height="wrap_content"
+                android:text="FECHA VENCIMIENTO" />
+
+            <EditText
+                android:id="@+id/editTextDPFechaPrestamoVencimiento"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="10dp"
+                android:ems="10"
+                android:inputType="text" />
+
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/contactosPrestamo"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:text="CONTACTOS" />
+
+        <Spinner
+            android:id="@+id/spinnerContactosPrestamo"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="10dp" />
+
+        <TextView
+            android:id="@+id/categoriaPrestamo"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="CATEGORIAS" />
+
+        <Spinner
+            android:id="@+id/spinnerCategoriasPrestamo"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="10dp" />
+
+
+        <Button
+            android:id="@+id/btnAddPrestamo"
+            android:layout_width="283dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="7dp"
+            android:layout_gravity="center"
+            android:text="AGREGAR" />
+
+        <Button
+            android:id="@+id/btnShowPrestamo"
+            android:layout_width="283dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="7dp"
+            android:layout_gravity="center"
+            android:text="MOSTRAR PRESTAMOS" />
+
+
+
+        <Button
+            android:id="@+id/btnEditPrestamo"
+            android:layout_width="283dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="7dp"
+            android:layout_gravity="center"
+            android:text="ACTUALIZAR" />
+
+        <Button
+            android:id="@+id/btnDeletePrestamo"
+            android:layout_width="283dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="7dp"
+            android:layout_gravity="center"
+            android:text="ELIMINAR" />
+
+
+
+        <Button
+            android:id="@+id/btnSLimpiarPrestamo"
+            android:layout_width="283dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:layout_gravity="center"
+            android:text="LIMPIAR CAMPOS" />
+
+
+    </LinearLayout>
+
+    </ScrollView>
+
+</RelativeLayout>

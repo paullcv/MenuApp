@@ -70,8 +70,7 @@ public class Evento extends AppCompatActivity {
         //CREAMOS LA INSTANCIA CON EL MODELO
         ModeloEvento modeloEvento = new ModeloEvento(Evento.this);
 
-        //GENERAR EL EVENTO DE AGREGAR EVENTO
-
+        //BOTON FECHA CATEGORIA
         btnDPFecha.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -94,6 +93,7 @@ public class Evento extends AppCompatActivity {
         });
         //fin del boton de FECHA
 
+        //BOTON HORA CATEGORIA
         btnTPHora.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
