@@ -13,6 +13,9 @@
         android:theme="@style/Theme.AgendaPersonalBeta"
         tools:targetApi="31">
         <activity
+            android:name=".Controlador.Ingreso.IngresoMostrar"
+            android:exported="false" />
+        <activity
             android:name=".Controlador.Prestamo.PrestamoMostrar"
             android:exported="false" />
         <activity
@@ -31,7 +34,7 @@
             android:name=".Egreso"
             android:exported="false" />
         <activity
-            android:name=".Ingreso"
+            android:name=".Controlador.Ingreso.Ingreso"
             android:exported="false" />
         <activity
             android:name=".Controlador.Prestamo.Prestamo"

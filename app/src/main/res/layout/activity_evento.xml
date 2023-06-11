@@ -121,12 +121,12 @@
             android:text="AGREGAR" />
 
         <Button
-            android:id="@+id/btnEditEvento"
+            android:id="@+id/btnShowEvento"
             android:layout_width="283dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
             android:layout_gravity="center"
-            android:text="ACTUALIZAR" />
+            android:text="MOSTRAR EVENTOS" />
 
         <Button
             android:id="@+id/btnDeleteEvento"
@@ -136,13 +136,14 @@
             android:layout_gravity="center"
             android:text="ELIMINAR" />
 
+
         <Button
-            android:id="@+id/btnShowEvento"
+            android:id="@+id/btnEditEvento"
             android:layout_width="283dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
             android:layout_gravity="center"
-            android:text="MOSTRAR EVENTOS" />
+            android:text="ACTUALIZAR" />
 
         <Button
             android:id="@+id/btnLimpiarEvento"

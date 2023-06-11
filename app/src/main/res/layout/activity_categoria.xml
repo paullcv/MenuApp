@@ -94,12 +94,12 @@
             android:text="AGREGAR" />
 
         <Button
-            android:id="@+id/btnEditCategoria"
+            android:id="@+id/btnShowCategoria"
             android:layout_width="283dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
             android:layout_gravity="center"
-            android:text="ACTUALIZAR" />
+            android:text="MOSTRAR CATEGORIAS" />
 
         <Button
             android:id="@+id/btnDeleteCategoria"
@@ -110,12 +110,12 @@
             android:text="ELIMINAR" />
 
         <Button
-            android:id="@+id/btnShowCategoria"
+            android:id="@+id/btnEditCategoria"
             android:layout_width="283dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
             android:layout_gravity="center"
-            android:text="MOSTRAR CATEGORIAS" />
+            android:text="ACTUALIZAR" />
 
         <Button
             android:id="@+id/btnLimpiarCategoria"

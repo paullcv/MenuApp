@@ -125,10 +125,11 @@
             android:text="AGREGAR" />
 
         <Button
-            android:id="@+id/btnEditContacto"
+            android:id="@+id/btnShowContacto"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="ACTUALIZAR" />
+            android:text="MOSTRAR CONTACTOS" />
+
 
         <Button
             android:id="@+id/btnDeleteContacto"
@@ -136,11 +137,12 @@
             android:layout_height="wrap_content"
             android:text="ELIMINAR" />
 
+
         <Button
-            android:id="@+id/btnShowContacto"
+            android:id="@+id/btnEditContacto"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="MOSTRAR CONTACTOS" />
+            android:text="ACTUALIZAR" />
 
         <Button
             android:id="@+id/btnLimpiar"

@@ -1,18 +1,195 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Ingreso">
+    tools:context=".Controlador.Ingreso.Ingreso" >
 
 
-    <TextView
+
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="INGRESO"
-        android:textSize="30dp"
-        android:gravity="center"
-        />
+        android:orientation="vertical"
+        android:layout_marginBottom="15dp"
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="15dp"
+        android:layout_marginTop="15dp"
+        >
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+        <TextView
+            android:id="@+id/tituloPrincipalIngreso"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="15dp"
+            android:gravity="center"
+            android:text="INGRESOS"
+            android:textSize="26dp"
+            android:textStyle="bold" />
+
+
+        <TextView
+            android:id="@+id/tituloId"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="ID" />
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <EditText
+                android:id="@+id/editTextIdIngreso"
+                android:layout_width="225dp"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="10dp"
+                android:ems="10"
+                android:inputType="number" />
+
+            <Button
+                android:id="@+id/btnBuscarIngreso"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Buscar" />
+
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/textViewMontoIngreso"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="MONTO" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+
+            <EditText
+                android:id="@+id/editTextMontoIngreso"
+                android:layout_width="300dp"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:inputType="number"
+                android:layout_marginBottom="10dp"
+                />
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textStyle="bold"
+                android:textSize="20dp"
+                android:text="Bs" />
+
+
+        </LinearLayout>
+
+
+
+        <TextView
+            android:id="@+id/textViewNombreIngreso"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="NOMBRE" />
+
+        <EditText
+            android:id="@+id/editTextNombreIngreso"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:inputType="text"
+            android:layout_marginBottom="10dp"
+            />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/btnDPFechaIngreso"
+                android:layout_width="150dp"
+                android:layout_height="wrap_content"
+                android:text="FECHA INGRESO" />
+
+            <EditText
+                android:id="@+id/editTextFechaIngreso"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="10dp"
+                android:ems="10"
+                android:inputType="text" />
+
+        </LinearLayout>
+
+
+        <TextView
+            android:id="@+id/IngresoCategorias"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:text="CATEGORIAS" />
+
+        <Spinner
+            android:id="@+id/spinnerIngresoCategorias"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="10dp" />
+
+
+        <Button
+            android:id="@+id/btnAddIngreso"
+            android:layout_width="283dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:layout_gravity="center"
+            android:text="AGREGAR" />
+
+        <Button
+            android:id="@+id/btnShowIngreso"
+            android:layout_width="283dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="7dp"
+            android:layout_gravity="center"
+            android:text="MOSTRAR INGRESOS" />
+
+
+
+        <Button
+            android:id="@+id/btnEditIngreso"
+            android:layout_width="283dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="7dp"
+            android:layout_gravity="center"
+            android:text="ACTUALIZAR" />
+
+        <Button
+            android:id="@+id/btnDeleteIngreso"
+            android:layout_width="283dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="7dp"
+            android:layout_gravity="center"
+            android:text="ELIMINAR" />
+
+
+
+        <Button
+            android:id="@+id/btnLimpiarIngreso"
+            android:layout_width="283dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:layout_gravity="center"
+            android:text="LIMPIAR CAMPOS" />
+
+
+    </LinearLayout>
+
+
+
+
+</RelativeLayout>

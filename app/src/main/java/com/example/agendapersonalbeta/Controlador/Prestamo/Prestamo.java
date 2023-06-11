@@ -172,6 +172,7 @@ public class Prestamo extends AppCompatActivity {
         });
 
         // Evento de mostrar prestamos
+
         btnMostrarPrestamos.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
