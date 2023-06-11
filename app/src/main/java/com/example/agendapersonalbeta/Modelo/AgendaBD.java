@@ -9,7 +9,7 @@ import androidx.annotation.Nullable;
 public class AgendaBD extends SQLiteOpenHelper {
 
     private static final String NOMBRE_BD = "agenda.db";
-    private static final int VERSION_BD = 1;
+    private static final int VERSION_BD = 2;
     public static final String TABLA_CONTACTO="CREATE TABLE CONTACTO(ID INTEGER PRIMARY KEY , NOMBRE TEXT, CORREO TEXT, TELEFONO TEXT, DIRECCION TEXT)";
 
     public static final String TABLA_CATEGORIA="CREATE TABLE CATEGORIA(ID INTEGER PRIMARY KEY , TITULO TEXT, DESCRIPCION TEXT)";
@@ -19,6 +19,8 @@ public class AgendaBD extends SQLiteOpenHelper {
     public static final String TABLA_PRESTAMO = "CREATE TABLE PRESTAMO (ID INTEGER PRIMARY KEY, MONTO REAL, FECHAPRESTAMO TEXT, FECHAVENCIMIENTOPRESTAMO TEXT, CONTACTO_ID INTEGER, CATEGORIA_ID INTEGER, FOREIGN KEY(CONTACTO_ID) REFERENCES CONTACTO(ID), FOREIGN KEY(CATEGORIA_ID) REFERENCES CATEGORIA(ID))";
 
     public static final String TABLA_INGRESO = "CREATE TABLE INGRESO (ID INTEGER PRIMARY KEY, MONTO REAL, NOMBRE TEXT, FECHA TEXT, CATEGORIA_ID INTEGER, FOREIGN KEY(CATEGORIA_ID) REFERENCES CATEGORIA(ID))";
+
+    public static final String TABLA_EGRESO = "CREATE TABLE EGRESO (ID INTEGER PRIMARY KEY, MONTO REAL, NOMBRE TEXT, FECHA TEXT, CATEGORIA_ID INTEGER, FOREIGN KEY(CATEGORIA_ID) REFERENCES CATEGORIA(ID))";
 
     public AgendaBD(@Nullable Context context){
         super(context, NOMBRE_BD, null, VERSION_BD );
@@ -31,6 +33,7 @@ public class AgendaBD extends SQLiteOpenHelper {
         sqLiteDatabase.execSQL(TABLA_EVENTO);
         sqLiteDatabase.execSQL(TABLA_PRESTAMO);
         sqLiteDatabase.execSQL(TABLA_INGRESO);
+        sqLiteDatabase.execSQL(TABLA_EGRESO);
     }
 
     @Override
@@ -40,6 +43,7 @@ public class AgendaBD extends SQLiteOpenHelper {
         sqLiteDatabase.execSQL("DROP TABLE IF EXISTS "+ TABLA_EVENTO);
         sqLiteDatabase.execSQL("DROP TABLE IF EXISTS "+ TABLA_PRESTAMO);
         sqLiteDatabase.execSQL("DROP TABLE IF EXISTS "+ TABLA_INGRESO);
+        sqLiteDatabase.execSQL("DROP TABLE IF EXISTS "+ TABLA_EGRESO);
         onCreate(sqLiteDatabase);
     }
 }

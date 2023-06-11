@@ -1,18 +1,195 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Egreso">
+    tools:context=".Controlador.Egreso.Egreso" >
 
 
-    <TextView
+
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="EGRESO"
-        android:textSize="30dp"
-        android:gravity="center"
-        />
+        android:orientation="vertical"
+        android:layout_marginBottom="15dp"
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="15dp"
+        android:layout_marginTop="15dp"
+        >
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+        <TextView
+            android:id="@+id/tituloPrincipalEgreso"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="15dp"
+            android:gravity="center"
+            android:text="EGRESOS"
+            android:textSize="26dp"
+            android:textStyle="bold" />
+
+
+        <TextView
+            android:id="@+id/tituloId"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="ID" />
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <EditText
+                android:id="@+id/editTextIdEgreso"
+                android:layout_width="225dp"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="10dp"
+                android:ems="10"
+                android:inputType="number" />
+
+            <Button
+                android:id="@+id/btnBuscarEgreso"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Buscar" />
+
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/textViewMontoEgreso"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="MONTO" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+
+            <EditText
+                android:id="@+id/editTextMontoEgreso"
+                android:layout_width="300dp"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:inputType="number"
+                android:layout_marginBottom="10dp"
+                />
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textStyle="bold"
+                android:textSize="20dp"
+                android:text="Bs" />
+
+
+        </LinearLayout>
+
+
+
+        <TextView
+            android:id="@+id/textViewNombreEgreso"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="NOMBRE" />
+
+        <EditText
+            android:id="@+id/editTextNombreEgreso"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:inputType="text"
+            android:layout_marginBottom="10dp"
+            />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/btnDPFechaEgreso"
+                android:layout_width="150dp"
+                android:layout_height="wrap_content"
+                android:text="FECHA EGRESO" />
+
+            <EditText
+                android:id="@+id/editTextFechaEgreso"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="10dp"
+                android:ems="10"
+                android:inputType="text" />
+
+        </LinearLayout>
+
+
+        <TextView
+            android:id="@+id/EgresoCategorias"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:text="CATEGORIAS" />
+
+        <Spinner
+            android:id="@+id/spinnerEgresoCategorias"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="10dp" />
+
+
+        <Button
+            android:id="@+id/btnAddEgreso"
+            android:layout_width="283dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:layout_gravity="center"
+            android:text="AGREGAR" />
+
+        <Button
+            android:id="@+id/btnShowEgreso"
+            android:layout_width="283dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="7dp"
+            android:layout_gravity="center"
+            android:text="MOSTRAR EGRESOS" />
+
+
+
+        <Button
+            android:id="@+id/btnEditEgreso"
+            android:layout_width="283dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="7dp"
+            android:layout_gravity="center"
+            android:text="ACTUALIZAR" />
+
+        <Button
+            android:id="@+id/btnDeleteEgreso"
+            android:layout_width="283dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="7dp"
+            android:layout_gravity="center"
+            android:text="ELIMINAR" />
+
+
+
+        <Button
+            android:id="@+id/btnLimpiarEgreso"
+            android:layout_width="283dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:layout_gravity="center"
+            android:text="LIMPIAR CAMPOS" />
+
+
+    </LinearLayout>
+
+
+
+
+</RelativeLayout>

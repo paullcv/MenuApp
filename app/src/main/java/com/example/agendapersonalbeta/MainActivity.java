@@ -11,6 +11,7 @@ import android.widget.Toast;
 
 import com.example.agendapersonalbeta.Controlador.Categoria.Categoria;
 import com.example.agendapersonalbeta.Controlador.Contacto.Contacto;
+import com.example.agendapersonalbeta.Controlador.Egreso.Egreso;
 import com.example.agendapersonalbeta.Controlador.Evento.Evento;
 import com.example.agendapersonalbeta.Controlador.Ingreso.Ingreso;
 import com.example.agendapersonalbeta.Controlador.Prestamo.Prestamo;
@@ -50,7 +51,7 @@ public class MainActivity extends AppCompatActivity {
                         Intent intent = new Intent(MainActivity.this, Ingreso.class);
                         startActivity(intent);
                     } else if (finalI == 3) {
-                        Intent intent = new Intent(MainActivity.this,Egreso.class);
+                        Intent intent = new Intent(MainActivity.this, Egreso.class);
                         startActivity(intent);
                     } else if (finalI == 4) {
                         Intent intent = new Intent(MainActivity.this, Prestamo.class);

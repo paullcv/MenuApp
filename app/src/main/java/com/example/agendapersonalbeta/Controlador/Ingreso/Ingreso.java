@@ -145,7 +145,7 @@ public class Ingreso extends AppCompatActivity {
             }
         });
 
-        // GENERAR EVENTO DE EDITAR PRESTAMO
+        // GENERAR EVENTO DE EDITAR INGRESO
         btnEditarIngreso.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -162,7 +162,7 @@ public class Ingreso extends AppCompatActivity {
             }
         });
 
-        // GENERAR EVENTO DE ELIMINAR PRESTAMO
+        // GENERAR EVENTO DE ELIMINAR INGRESO
         btnEliminarIngreso.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

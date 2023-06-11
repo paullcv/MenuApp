@@ -13,6 +13,9 @@
         android:theme="@style/Theme.AgendaPersonalBeta"
         tools:targetApi="31">
         <activity
+            android:name=".Controlador.Egreso.EgresoMostrar"
+            android:exported="false" />
+        <activity
             android:name=".Controlador.Ingreso.IngresoMostrar"
             android:exported="false" />
         <activity
@@ -31,7 +34,7 @@
             android:name=".Controlador.Categoria.Categoria"
             android:exported="false" />
         <activity
-            android:name=".Egreso"
+            android:name=".Controlador.Egreso.Egreso"
             android:exported="false" />
         <activity
             android:name=".Controlador.Ingreso.Ingreso"
