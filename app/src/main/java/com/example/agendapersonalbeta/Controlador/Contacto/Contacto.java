@@ -11,6 +11,7 @@ import android.widget.Toast;
 
 import com.example.agendapersonalbeta.Modelo.Contacto.ClaseContacto;
 import com.example.agendapersonalbeta.Modelo.Contacto.ModeloContacto;
+import com.example.agendapersonalbeta.Modelo.Contacto.ModeloContactoProxy;
 import com.example.agendapersonalbeta.R;
 
 public class Contacto extends AppCompatActivity {
@@ -47,15 +48,19 @@ public class Contacto extends AppCompatActivity {
 
 
         //CREAMOS LA INSTACIA DEL MODELO
-        final ModeloContacto modeloContacto = new ModeloContacto(Contacto.this);
+        final ModeloContactoProxy modeloContactoProxy = new ModeloContactoProxy(Contacto.this);
 
         //GENERAR EL EVENTO DE AGREGAR CONTACTO
         btnAgregarContacto.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                modeloContacto.agregarContacto(Integer.valueOf(etIdContacto.getText().toString()),etNombreContacto.getText().toString(), etCorreoContacto.getText().toString(), Integer.valueOf(etTelefonoContacto.getText().toString()), etDireccionContacto.getText().toString());
-                limpiar();
-                Toast.makeText(getApplicationContext(), "SE AGREGO CORRECTAMENTE", Toast.LENGTH_SHORT).show();
+                modeloContactoProxy.agregarContacto(Integer.valueOf(etIdContacto.getText().toString()),etNombreContacto.getText().toString(), etCorreoContacto.getText().toString(), Integer.valueOf(etTelefonoContacto.getText().toString()), etDireccionContacto.getText().toString());
+                if (modeloContactoProxy.isAgregadoCorrectamente()) {
+                    Toast.makeText(getApplicationContext(), "SE AGREGÓ CORRECTAMENTE", Toast.LENGTH_SHORT).show();
+                    limpiar();
+                } else {
+                    Toast.makeText(getApplicationContext(), "ERROR AL AGREGAR EL CONTACTO", Toast.LENGTH_SHORT).show();
+                }
             }
         });
 
@@ -75,7 +80,7 @@ public class Contacto extends AppCompatActivity {
                 ClaseContacto contacto = new ClaseContacto();
                 String textid = etIdContacto.getText().toString();
                 int id = Integer.valueOf(textid);
-                modeloContacto.buscarContacto(contacto, id);
+                modeloContactoProxy.buscarContacto(contacto, id);
                 etNombreContacto.setText(contacto.getNombre());
                 etCorreoContacto.setText(contacto.getCorreo());
                 etTelefonoContacto.setText(String.valueOf(contacto.getTelefono()));
@@ -88,9 +93,13 @@ public class Contacto extends AppCompatActivity {
         btnEditarContacto.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                modeloContacto.editarContacto(Integer.valueOf(etIdContacto.getText().toString()), etNombreContacto.getText().toString(), etCorreoContacto.getText().toString(), Integer.valueOf(etTelefonoContacto.getText().toString()),etDireccionContacto.getText().toString());
-                limpiar();
-                Toast.makeText(getApplicationContext(), "Los Datos se Actualizaron Correctamente", Toast.LENGTH_SHORT).show();
+                modeloContactoProxy.editarContacto(Integer.valueOf(etIdContacto.getText().toString()), etNombreContacto.getText().toString(), etCorreoContacto.getText().toString(), Integer.valueOf(etTelefonoContacto.getText().toString()),etDireccionContacto.getText().toString());
+                if (modeloContactoProxy.isAgregadoCorrectamente()) {
+                    Toast.makeText(getApplicationContext(), "LOS DATOS SE ACTUALIZARON CORRECTAMENTE", Toast.LENGTH_SHORT).show();
+                    limpiar();
+                } else {
+                    Toast.makeText(getApplicationContext(), "ERROR AL ACTUALIZAR EL CONTACTO", Toast.LENGTH_SHORT).show();
+                }
             }
         });
 
@@ -98,7 +107,7 @@ public class Contacto extends AppCompatActivity {
         btnEliminarContacto.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                modeloContacto.eliminarContacto(Integer.valueOf(etIdContacto.getText().toString()));
+                modeloContactoProxy.eliminarContacto(Integer.valueOf(etIdContacto.getText().toString()));
                 limpiar();
                 Toast.makeText(getApplicationContext(), "Los Datos se Eliminaron Correctamente", Toast.LENGTH_SHORT).show();
             }

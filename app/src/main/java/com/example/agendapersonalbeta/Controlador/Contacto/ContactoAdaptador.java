@@ -41,7 +41,7 @@ public class ContactoAdaptador extends RecyclerView.Adapter<ContactoAdaptador.Vi
         }
     }
 
-
+    //INFLA LA VISTA DEL ITEM
     @NonNull
     @Override
     public ContactoAdaptador.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
@@ -50,6 +50,7 @@ public class ContactoAdaptador extends RecyclerView.Adapter<ContactoAdaptador.Vi
         return viewHolder;
     }
 
+    //CARGA CON LOS VALORES DEL ITEM
     @Override
     public void onBindViewHolder(@NonNull ContactoAdaptador.ViewHolder holder, int position) {
         holder.id.setText(String.valueOf(contactoLista.get(position).getId()));
@@ -60,6 +61,7 @@ public class ContactoAdaptador extends RecyclerView.Adapter<ContactoAdaptador.Vi
 
     }
 
+    //CANTIDAD DE ITEMS QUE VAN A HACER CARGADOS
     @Override
     public int getItemCount() {
         return contactoLista.size();

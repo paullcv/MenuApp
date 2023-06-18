@@ -8,6 +8,7 @@ import android.os.Bundle;
 
 import com.example.agendapersonalbeta.Controlador.Contacto.ContactoAdaptador;
 import com.example.agendapersonalbeta.Modelo.Contacto.ModeloContacto;
+import com.example.agendapersonalbeta.Modelo.Contacto.ModeloContactoProxy;
 import com.example.agendapersonalbeta.R;
 
 public class ContactoMostar extends AppCompatActivity {
@@ -27,10 +28,10 @@ public class ContactoMostar extends AppCompatActivity {
 
 
         //INSTACIA DE NUESTRO MODELO PARA QUE UTILICE EL METODO MOSTRAR CONTACTO
-        ModeloContacto modeloContacto = new ModeloContacto(getApplicationContext());
+        ModeloContactoProxy modeloContactoProxy = new ModeloContactoProxy(getApplicationContext());
 
 
-        contactoAdaptador = new ContactoAdaptador(modeloContacto.mostrarContactos());
+        contactoAdaptador = new ContactoAdaptador(modeloContactoProxy.mostrarContactos());
         recyclerView.setAdapter(contactoAdaptador);
     }
 

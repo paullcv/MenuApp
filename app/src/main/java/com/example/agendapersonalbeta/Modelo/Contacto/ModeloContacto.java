@@ -12,7 +12,7 @@ import com.example.agendapersonalbeta.Modelo.AgendaBD;
 import java.util.ArrayList;
 import java.util.List;
 
-public class ModeloContacto extends AgendaBD {
+public class ModeloContacto extends AgendaBD implements IModeloContacto {
 
     Context context;
 
@@ -21,6 +21,7 @@ public class ModeloContacto extends AgendaBD {
         this.context = context;
     }
 
+    @Override
     public void agregarContacto(Integer id, String nombre,String correo, Integer telefono, String direccion){
         SQLiteDatabase bd = getWritableDatabase();
         if (bd != null){
@@ -35,6 +36,7 @@ public class ModeloContacto extends AgendaBD {
         }
     }
 
+    @Override
     public List<ClaseContacto> mostrarContactos(){
         SQLiteDatabase bd = getWritableDatabase();
         Cursor cursor = bd.rawQuery("SELECT * FROM CONTACTO", null);
@@ -48,6 +50,7 @@ public class ModeloContacto extends AgendaBD {
     }
 
 
+    @Override
     public void buscarContacto(ClaseContacto contacto, Integer id){
         SQLiteDatabase bd = getWritableDatabase();
         Cursor cursor = bd.rawQuery("SELECT * FROM CONTACTO WHERE ID='"+id+"' ", null);
@@ -61,6 +64,7 @@ public class ModeloContacto extends AgendaBD {
         }
     }
 
+    @Override
     public void editarContacto(Integer id, String nombre, String correo, Integer telefono, String direccion) {
         SQLiteDatabase bd = getWritableDatabase();
         if (bd != null) {
@@ -76,6 +80,7 @@ public class ModeloContacto extends AgendaBD {
         }
     }
 
+    @Override
     public void eliminarContacto(Integer id) {
         SQLiteDatabase bd = getWritableDatabase();
         if (bd != null) {

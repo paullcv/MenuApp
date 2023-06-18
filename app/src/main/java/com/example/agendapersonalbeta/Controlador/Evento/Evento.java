@@ -1,11 +1,23 @@
 package com.example.agendapersonalbeta.Controlador.Evento;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.ActivityCompat;
+import androidx.core.app.NotificationCompat;
+import androidx.core.app.NotificationManagerCompat;
 
+import android.Manifest;
 import android.app.DatePickerDialog;
+import android.app.NotificationChannel;
+import android.app.NotificationManager;
+import android.app.PendingIntent;
+import android.app.Service;
 import android.app.TimePickerDialog;
 import android.content.Intent;
+import android.content.pm.PackageManager;
+import android.os.Build;
 import android.os.Bundle;
+import android.os.Handler;
+import android.os.IBinder;
 import android.view.View;
 import android.widget.Button;
 import android.widget.DatePicker;
@@ -17,7 +29,10 @@ import com.example.agendapersonalbeta.Modelo.Evento.ClaseEvento;
 import com.example.agendapersonalbeta.Modelo.Evento.ModeloEvento;
 import com.example.agendapersonalbeta.R;
 
+import java.text.SimpleDateFormat;
 import java.util.Calendar;
+import java.util.Date;
+import java.util.List;
 import java.util.Locale;
 
 public class Evento extends AppCompatActivity {
@@ -45,6 +60,13 @@ public class Evento extends AppCompatActivity {
     String fechaSeleccionada;
     String horaSeleccionada;
 
+    private SimpleDateFormat dateFormat;
+    private Date fechaActual;
+
+    private static final String CHANNEL_ID = "EventoChannel";
+    private static final int NOTIFICATION_ID = 1;
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -67,18 +89,33 @@ public class Evento extends AppCompatActivity {
         btnLimpiarEvento = findViewById(R.id.btnLimpiarEvento);
 
 
+        dateFormat = new SimpleDateFormat("dd/MM/yyyy", Locale.getDefault());
+        fechaActual = Calendar.getInstance().getTime();
+        createNotificationChannel();
+
+
         //CREAMOS LA INSTANCIA CON EL MODELO
         ModeloEvento modeloEvento = new ModeloEvento(Evento.this);
 
-        //BOTON FECHA CATEGORIA
+
+        List<ClaseEvento> eventos = modeloEvento.mostrarEventos();
+        for (ClaseEvento evento : eventos) {
+            if (validarFecha(evento.getFecha())) {
+                createNotification(evento.getId(), evento.getNombre(), evento.getFecha(), evento.getHora());
+            }
+        }
+        startService(new Intent(this, NotificationService.class));
+
+
+        //BOTON FECHA EVENTO
         btnDPFecha.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
 
                 final Calendar calendar = Calendar.getInstance();
-                 dia = calendar.get(Calendar.DAY_OF_MONTH);
-                 mes = calendar.get(Calendar.MONTH);
-                 anio = calendar.get(Calendar.YEAR);
+                dia = calendar.get(Calendar.DAY_OF_MONTH);
+                mes = calendar.get(Calendar.MONTH);
+                anio = calendar.get(Calendar.YEAR);
 
                 DatePickerDialog datePickerDialog = new DatePickerDialog(Evento.this, new DatePickerDialog.OnDateSetListener() {
                     @Override
@@ -93,18 +130,18 @@ public class Evento extends AppCompatActivity {
         });
         //fin del boton de FECHA
 
-        //BOTON HORA CATEGORIA
+        //BOTON HORA EVENTO
         btnTPHora.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 final Calendar calendar = Calendar.getInstance();
-                 hora = calendar.get(Calendar.HOUR_OF_DAY);
-                 minuto = calendar.get(Calendar.MINUTE);
+                hora = calendar.get(Calendar.HOUR_OF_DAY);
+                minuto = calendar.get(Calendar.MINUTE);
                 TimePickerDialog timePickerDialog = new TimePickerDialog(Evento.this, new TimePickerDialog.OnTimeSetListener() {
                     @Override
                     public void onTimeSet(TimePicker view, int hourOfDay, int minute) {
                         // Muestra la hora seleccionada en un TextView o realiza cualquier otra operación necesaria
-                         horaSeleccionada = String.format(Locale.getDefault(), "%02d:%02d", hourOfDay, minute);
+                        horaSeleccionada = String.format(Locale.getDefault(), "%02d:%02d", hourOfDay, minute);
                         etTPHoraEvento.setText(horaSeleccionada);
                     }
                 }, hora, minuto, true);
@@ -114,7 +151,7 @@ public class Evento extends AppCompatActivity {
         });
         //fin del boton de HORA
 
-        //GENERAR EL EVENTO DE AGREGAR CATEGORIA
+        //GENERAR EL EVENTO DE AGREGAR EVENTO
         btnAgregarEvento.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -174,14 +211,79 @@ public class Evento extends AppCompatActivity {
                 limpiar();
             }
         });
+
     }
 
-    private void limpiar(){
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        // Detener el servicio NotificationService
+        stopService(new Intent(this, NotificationService.class));
+    }
+
+
+    private boolean validarFecha(String fecha) {
+        try {
+            Date fechaEvento = dateFormat.parse(fecha);
+            return fechaEvento.after(fechaActual) || fechaEvento.equals(fechaActual);
+        } catch (Exception e) {
+            e.printStackTrace();
+            return false;
+        }
+    }
+
+    private void createNotificationChannel() {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+            CharSequence name = "Evento Channel";
+            String description = "Canal de notificación para eventos";
+            int importance = NotificationManager.IMPORTANCE_DEFAULT;
+            NotificationChannel channel = new NotificationChannel(CHANNEL_ID, name, importance);
+            channel.setDescription(description);
+            NotificationManager notificationManager = getSystemService(NotificationManager.class);
+            notificationManager.createNotificationChannel(channel);
+        }
+    }
+
+    private void createNotification(int id, String nombre, String fecha, String hora) {
+        // Crear intent para abrir la actividad del evento al hacer clic en la notificación
+        Intent intent = new Intent(this, Evento.class);
+        intent.putExtra("id", id);
+        PendingIntent pendingIntent = PendingIntent.getActivity(this, 0, intent, PendingIntent.FLAG_UPDATE_CURRENT);
+
+        // Construir la notificación
+        NotificationCompat.Builder builder = new NotificationCompat.Builder(this, CHANNEL_ID)
+                .setSmallIcon(R.drawable.evento)
+                .setContentTitle("Recordatorio de evento")
+                .setContentText(nombre)
+                .setStyle(new NotificationCompat.BigTextStyle().bigText("Fecha: " + fecha + "\nHora: " + hora))
+                .setPriority(NotificationCompat.PRIORITY_DEFAULT)
+                .setContentIntent(pendingIntent)
+                .setAutoCancel(true);
+
+        // Mostrar la notificación
+        NotificationManagerCompat notificationManager = NotificationManagerCompat.from(this);
+        if (ActivityCompat.checkSelfPermission(this, Manifest.permission.POST_NOTIFICATIONS) != PackageManager.PERMISSION_GRANTED) {
+            // TODO: Consider calling
+            //    ActivityCompat#requestPermissions
+            // here to request the missing permissions, and then overriding
+            //   public void onRequestPermissionsResult(int requestCode, String[] permissions,
+            //                                          int[] grantResults)
+            // to handle the case where the user grants the permission. See the documentation
+            // for ActivityCompat#requestPermissions for more details.
+            return;
+        }
+        notificationManager.notify(NOTIFICATION_ID, builder.build());
+    }
+
+    private void limpiar() {
         etIdEvento.setText("");
         etNombreEvento.setText("");
         etDPFechaEvento.setText("");
         etTPHoraEvento.setText("");
     }
+
+    //GENERAR NOTIFICACIONES
+
 
 
 
