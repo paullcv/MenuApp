@@ -105,7 +105,7 @@ public class Egreso extends AppCompatActivity {
             public void onClick(View view) {
                 ClaseCategoria categoriaSeleccionada = listaCategorias.get(spinnerCategoria.getSelectedItemPosition());
 
-                modeloEgreso.AgregarEgreso(
+                modeloEgreso.realizarTransaccion(
                         Integer.valueOf(etIdEgreso.getText().toString()),
                         Double.valueOf(etMontoEgreso.getText().toString()),
                         etNombreEgreso.getText().toString(),
@@ -148,7 +148,7 @@ public class Egreso extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 ClaseCategoria categoriaSeleccionada = listaCategorias.get(spinnerCategoria.getSelectedItemPosition());
-                modeloEgreso.editarEgreso(
+                modeloEgreso.editarTransaccion(
                         Integer.valueOf(etIdEgreso.getText().toString()),
                         Double.valueOf(etMontoEgreso.getText().toString()),
                         etNombreEgreso.getText().toString(),
@@ -164,7 +164,7 @@ public class Egreso extends AppCompatActivity {
         btnEliminarEgreso.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                modeloEgreso.eliminarEgreso(Integer.valueOf(etIdEgreso.getText().toString()));
+                modeloEgreso.eliminarTransaccion(Integer.valueOf(etIdEgreso.getText().toString()));
                 limpiar();
                 Toast.makeText(getApplicationContext(), "LOS DATOS SE ELIMINARON CORRECTAMENTE", Toast.LENGTH_SHORT).show();
             }

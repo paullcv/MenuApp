@@ -7,34 +7,22 @@ import android.database.sqlite.SQLiteDatabase;
 
 import androidx.annotation.Nullable;
 
-import com.example.agendapersonalbeta.Modelo.AgendaBD;
-import com.example.agendapersonalbeta.Modelo.Ingreso.ClaseIngreso;
-
-
 import java.util.ArrayList;
 import java.util.List;
 
-public class ModeloIngreso extends AgendaBD {
+
+public class ModeloIngreso extends ModeloTransaccion {
 
     Context context;
 
-    public ModeloIngreso(@Nullable Context context){
+    public ModeloIngreso(@Nullable Context context) {
         super(context);
         this.context = context;
     }
 
-    public void AgregarIngreso(Integer id, Double monto, String nombre, String fecha, Integer categoria_id){
-        SQLiteDatabase bd = getWritableDatabase();
-        if (bd != null){
-            ContentValues valores = new ContentValues();
-            valores.put("ID", id);
-            valores.put("MONTO",monto );
-            valores.put("NOMBRE",nombre );
-            valores.put("FECHA",fecha );
-            valores.put("CATEGORIA_ID", categoria_id);
-            bd.insert("INGRESO", null, valores);
-            bd.close();
-        }
+    @Override
+    protected void insertarRegistro(SQLiteDatabase bd, ContentValues valores) {
+        bd.insert("INGRESO", null, valores);
     }
 
     public List<ClaseIngreso> mostrarIngresos() {
@@ -68,30 +56,27 @@ public class ModeloIngreso extends AgendaBD {
         }
     }
 
-    public void editarIngreso(Integer id, double monto,  String nombre, String fecha, Integer categoriaId) {
-        SQLiteDatabase bd = getWritableDatabase();
-        if (bd != null) {
-            ContentValues valores = new ContentValues();
-            valores.put("MONTO", monto);
-            valores.put("NOMBRE", nombre);
-            valores.put("FECHA", fecha);
-            valores.put("CATEGORIA_ID", categoriaId);
-            String whereClause = "ID = ?";
-            String[] whereArgs = {String.valueOf(id)};
-            bd.update("INGRESO", valores, whereClause, whereArgs);
-            bd.close();
-        }
+    @Override
+    protected void editarOperacion(SQLiteDatabase bd, Integer id, Double monto, String nombre, String fecha, Integer categoriaId) {
+        ContentValues valores = new ContentValues();
+        valores.put("MONTO", monto);
+        valores.put("NOMBRE", nombre);
+        valores.put("FECHA", fecha);
+        valores.put("CATEGORIA_ID", categoriaId);
+        String whereClause = "ID = ?";
+        String[] whereArgs = {String.valueOf(id)};
+        bd.update("INGRESO", valores, whereClause, whereArgs);
     }
 
-    public void eliminarIngreso(Integer id) {
-        SQLiteDatabase bd = getWritableDatabase();
-        if (bd != null) {
-            String whereClause = "ID = ?";
-            String[] whereArgs = {String.valueOf(id)};
-            bd.delete("INGRESO", whereClause, whereArgs);
-            bd.close();
-        }
+    @Override
+    protected void eliminarOperacion(SQLiteDatabase bd, Integer id) {
+        String whereClause = "ID = ?";
+        String[] whereArgs = {String.valueOf(id)};
+        bd.delete("INGRESO", whereClause, whereArgs);
     }
 
-
+    @Override
+    protected String obtenerNombreTabla() {
+        return "INGRESO";
+    }
 }

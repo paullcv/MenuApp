@@ -66,6 +66,8 @@ public class Ingreso extends AppCompatActivity {
         // CREAR INSTANCIA DEL MODELO
         ModeloIngreso modeloIngreso = new ModeloIngreso(Ingreso.this);
         ModeloCategoria modeloCategoria = new ModeloCategoria(Ingreso.this);
+        ModeloIngreso modeloIngresoPlantilla = new ModeloIngreso(Ingreso.this);
+
 
         //BOTON PARA TRABAJAR CON EL DATAPICKER FECHA INGRESO
         btnDPFechaIngreso.setOnClickListener(new View.OnClickListener() {
@@ -106,7 +108,7 @@ public class Ingreso extends AppCompatActivity {
             public void onClick(View view) {
                 ClaseCategoria categoriaSeleccionada = listaCategorias.get(spinnerCategoria.getSelectedItemPosition());
 
-                modeloIngreso.AgregarIngreso(
+                modeloIngreso.realizarTransaccion(
                         Integer.valueOf(etIdIngreso.getText().toString()),
                         Double.valueOf(etMontoIngreso.getText().toString()),
                         etNombreIngreso.getText().toString(),
@@ -150,7 +152,7 @@ public class Ingreso extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 ClaseCategoria categoriaSeleccionada = listaCategorias.get(spinnerCategoria.getSelectedItemPosition());
-                modeloIngreso.editarIngreso(
+                modeloIngreso.editarTransaccion(
                         Integer.valueOf(etIdIngreso.getText().toString()),
                         Double.valueOf(etMontoIngreso.getText().toString()),
                         etNombreIngreso.getText().toString(),
@@ -166,7 +168,7 @@ public class Ingreso extends AppCompatActivity {
         btnEliminarIngreso.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                modeloIngreso.eliminarIngreso(Integer.valueOf(etIdIngreso.getText().toString()));
+                modeloIngreso.eliminarTransaccion(Integer.valueOf(etIdIngreso.getText().toString()));
                 limpiar();
                 Toast.makeText(getApplicationContext(), "LOS DATOS SE ELIMINARON CORRECTAMENTE", Toast.LENGTH_SHORT).show();
             }

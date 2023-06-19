@@ -6,7 +6,6 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import android.os.Bundle;
 
-import com.example.agendapersonalbeta.Controlador.Egreso.EgresoAdaptador;
 import com.example.agendapersonalbeta.Modelo.Categoria.ClaseCategoria;
 import com.example.agendapersonalbeta.Modelo.Categoria.ModeloCategoria;
 import com.example.agendapersonalbeta.Modelo.Egreso.ModeloEgreso;
