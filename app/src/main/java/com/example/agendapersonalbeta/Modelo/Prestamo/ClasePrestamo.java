@@ -24,6 +24,14 @@ public class ClasePrestamo {
         this.contacto_id = contacto_id;
         this.categoria_id = categoria_id;
     }
+    private ClasePrestamo(Builder builder) {
+        this.id = builder.id;
+        this.monto = builder.monto;
+        this.fechaPrestamo = builder.fechaPrestamo;
+        this.fechaVencimientoPrestamo = builder.fechaVencimientoPrestamo;
+        this.contacto_id = builder.contacto_id;
+        this.categoria_id = builder.categoria_id;
+    }
 
     public int getId() {
         return id;
@@ -71,5 +79,54 @@ public class ClasePrestamo {
 
     public void setCategoria_id(int categoria_id) {
         this.categoria_id = categoria_id;
+    }
+
+    // Clase Builder para construir objetos ClasePrestamo paso a paso
+    public static class Builder {
+        private int id;
+        private double monto;
+        private String fechaPrestamo;
+        private String fechaVencimientoPrestamo;
+        private int contacto_id;
+        private int categoria_id;
+
+        public Builder() {
+            // Valores predeterminados o iniciales opcionales
+        }
+
+        public Builder setId(int id) {
+            this.id = id;
+            return this;
+        }
+
+        public Builder setMonto(double monto) {
+            this.monto = monto;
+            return this;
+        }
+
+        public Builder setFechaPrestamo(String fechaPrestamo) {
+            this.fechaPrestamo = fechaPrestamo;
+            return this;
+        }
+
+        public Builder setFechaVencimientoPrestamo(String fechaVencimientoPrestamo) {
+            this.fechaVencimientoPrestamo = fechaVencimientoPrestamo;
+            return this;
+        }
+
+        public Builder setContacto_id(int contacto_id) {
+            this.contacto_id = contacto_id;
+            return this;
+        }
+
+        public Builder setCategoria_id(int categoria_id) {
+            this.categoria_id = categoria_id;
+            return this;
+        }
+
+        // Método para construir el objeto ClasePrestamo
+        public ClasePrestamo build() {
+            return new ClasePrestamo(this);
+        }
     }
 }

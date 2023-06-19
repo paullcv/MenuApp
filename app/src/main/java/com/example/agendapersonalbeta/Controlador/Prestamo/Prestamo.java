@@ -97,7 +97,6 @@ public class Prestamo extends AppCompatActivity {
                 DatePickerDialog datePickerDialog = new DatePickerDialog(Prestamo.this, new DatePickerDialog.OnDateSetListener() {
                     @Override
                     public void onDateSet(DatePicker view, int year, int monthOfYear, int dayOfMonth) {
-                        // Muestra la fecha seleccionada en un TextView o realiza cualquier otra operación necesaria
                         fechaPrestamoSeleccionada = dayOfMonth + "/" + (monthOfYear + 1) + "/" + year;
                         etDPFechaPrestamo.setText(fechaPrestamoSeleccionada);
                     }
@@ -185,9 +184,12 @@ public class Prestamo extends AppCompatActivity {
         btnBuscarPrestamo.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                ClasePrestamo prestamo = new ClasePrestamo();
+                ClasePrestamo.Builder prestamoBuilder = new ClasePrestamo.Builder();
                 int id = Integer.valueOf(etIdPrestamo.getText().toString());
-                modeloPrestamo.buscarPrestamo(prestamo, id);
+                modeloPrestamo.buscarPrestamo(prestamoBuilder, id);
+
+                ClasePrestamo prestamo = prestamoBuilder.build();
+
                 etMontoPrestamo.setText(String.valueOf(prestamo.getMonto()));
                 etDPFechaPrestamo.setText(prestamo.getFechaPrestamo());
                 etEtDPFechaVencimientoPrestamo.setText(prestamo.getFechaVencimientoPrestamo());
@@ -201,6 +203,7 @@ public class Prestamo extends AppCompatActivity {
                 spinnerCategoria.setSelection(posicionCategoria);
             }
         });
+
 
         // GENERAR EVENTO DE EDITAR PRESTAMO
         btnEditarPrestamo.setOnClickListener(new View.OnClickListener() {

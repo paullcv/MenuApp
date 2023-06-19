@@ -42,29 +42,31 @@ public class ModeloPrestamo extends AgendaBD {
         List<ClasePrestamo> prestamos = new ArrayList<>();
         if (cursor.moveToFirst()) {
             do {
-                prestamos.add(new ClasePrestamo(
-                        Integer.valueOf(cursor.getString(0)),
-                        Double.valueOf(cursor.getString(1)),
-                        cursor.getString(2),
-                        cursor.getString(3),
-                        Integer.valueOf(cursor.getString(4)),
-                        Integer.valueOf(cursor.getString(5))
-                ));
+                ClasePrestamo.Builder prestamoBuilder = new ClasePrestamo.Builder()
+                        .setId(Integer.valueOf(cursor.getString(0)))
+                        .setMonto(Double.valueOf(cursor.getString(1)))
+                        .setFechaPrestamo(cursor.getString(2))
+                        .setFechaVencimientoPrestamo(cursor.getString(3))
+                        .setContacto_id(Integer.valueOf(cursor.getString(4)))
+                        .setCategoria_id(Integer.valueOf(cursor.getString(5)));
+
+                prestamos.add(prestamoBuilder.build());
             } while (cursor.moveToNext());
         }
         return prestamos;
     }
 
-    public void buscarPrestamo(ClasePrestamo prestamo, Integer id) {
+    public void buscarPrestamo(ClasePrestamo.Builder prestamoBuilder, Integer id) {
         SQLiteDatabase bd = getWritableDatabase();
         Cursor cursor = bd.rawQuery("SELECT * FROM PRESTAMO WHERE ID='" + id + "' ", null);
         if (cursor.moveToFirst()) {
             do {
-                prestamo.setMonto(Double.valueOf(cursor.getString(1)));
-                prestamo.setFechaPrestamo(cursor.getString(2));
-                prestamo.setFechaVencimientoPrestamo(cursor.getString(3));
-                prestamo.setContacto_id(Integer.valueOf(cursor.getString(4)));
-                prestamo.setCategoria_id(Integer.valueOf(cursor.getString(5)));
+                prestamoBuilder
+                        .setMonto(Double.valueOf(cursor.getString(1)))
+                        .setFechaPrestamo(cursor.getString(2))
+                        .setFechaVencimientoPrestamo(cursor.getString(3))
+                        .setContacto_id(Integer.valueOf(cursor.getString(4)))
+                        .setCategoria_id(Integer.valueOf(cursor.getString(5)));
             } while (cursor.moveToNext());
         }
     }
