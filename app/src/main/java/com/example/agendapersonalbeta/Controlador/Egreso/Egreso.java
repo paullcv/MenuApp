@@ -281,7 +281,7 @@ public class Egreso extends AppCompatActivity {
             e.printStackTrace();
         }
     }
-    
+
 
     private void addTableHeader(PdfPTable table, String headerText, Font font, BaseColor backgroundColor) {
         PdfPCell header = new PdfPCell(new Paragraph(headerText, font));

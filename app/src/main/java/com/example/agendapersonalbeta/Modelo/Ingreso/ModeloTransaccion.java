@@ -50,5 +50,5 @@ public abstract class ModeloTransaccion extends AgendaBD {
     protected abstract void editarOperacion(SQLiteDatabase bd, Integer id, Double monto, String nombre, String fecha, Integer categoriaId);
     protected abstract void eliminarOperacion(SQLiteDatabase bd, Integer id);
 
-    protected abstract String obtenerNombreTabla();
+
 }

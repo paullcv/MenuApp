@@ -77,8 +77,4 @@ public class ModeloEgreso extends ModeloTransaccion {
         bd.delete("EGRESO", whereClause, whereArgs);
     }
 
-    @Override
-    protected String obtenerNombreTabla() {
-        return "EGRESO";
-    }
 }
