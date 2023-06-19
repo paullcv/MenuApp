@@ -7,6 +7,11 @@
     tools:context=".Controlador.Egreso.Egreso" >
 
 
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        >
+
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -186,10 +191,18 @@
             android:layout_gravity="center"
             android:text="LIMPIAR CAMPOS" />
 
+        <Button
+            android:id="@+id/btnGenerarReporte"
+            android:layout_width="283dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:layout_gravity="center"
+            android:text="REPORTE" />
+
 
     </LinearLayout>
 
-
+    </ScrollView>
 
 
 </RelativeLayout>
